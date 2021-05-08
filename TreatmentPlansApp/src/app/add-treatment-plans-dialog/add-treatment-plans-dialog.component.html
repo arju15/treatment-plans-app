@@ -1,0 +1,58 @@
+<h1 mat-dialog-title>Add Treatment Plan</h1>
+
+<form [formGroup]="form" (ngSubmit)="addPlan()">
+
+<mat-dialog-content>
+      <div>
+        <mat-grid-list cols="10" gutterSize="15px">
+            <mat-grid-tile [colspan]="5">   
+                <mat-form-field appearance="outline">
+                    <mat-label>Treatment Plan</mat-label>
+                    <input matInput
+                    type="text"
+                    name="plan"
+                    placeholder="Treatment Plan"
+                    formControlName="treatmentPlanName"
+                    />
+                    <mat-error *ngIf="form.controls.treatmentPlanName.errors?.required">
+                      Plan name can't be empty.
+                    </mat-error>
+                </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2">
+                <button mat-raised-button color="primary" class="add-plan-btn" disabled>Add Plan</button>
+            </mat-grid-tile>
+        </mat-grid-list>
+
+      </div>
+
+    <div>
+      <h3><mat-label>Treatment Description</mat-label></h3>
+        <mat-grid-list cols="10">
+            <mat-grid-tile [colspan]="10">
+            <mat-form-field appearance="outline">
+                <mat-label>Treatment Description</mat-label>
+                <textarea matInput 
+                name="description" 
+                formControlName="planDescription"
+                placeholder="Enter treatment details here">
+                </textarea>
+                <mat-error *ngIf="form.controls.planDescription.errors?.required">
+                  Treatment Description can't be empty.
+                </mat-error>
+            </mat-form-field>
+            </mat-grid-tile>
+        </mat-grid-list> 
+    </div>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-raised-button color="warn" (click)="close()">Close</button> &nbsp;
+  <button
+  type="submit"
+    class="mat-raised-button success-btn">
+    Add Plan
+  </button>
+</mat-dialog-actions>
+</form>
+

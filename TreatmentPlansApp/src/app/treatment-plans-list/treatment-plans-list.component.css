@@ -1,0 +1,55 @@
+
+.plan-card {
+    width: 600px;
+    background-color: lightcyan;
+}
+
+.plan-card-div {
+    position: absolute;
+    top: 180px;
+    margin-left: 20%;
+}
+.mat-table {
+    background: lightcyan;
+    position: relative;
+    left: 163px;
+    top: -50px;
+    width: 80%;
+}
+
+mat-header-row.mat-header-row.cdk-header-row {
+    background: linear-gradient(45deg, rgb(18, 17, 82), rgb(116, 116, 241), lightblue);
+}
+
+.mat-header-cell {
+    color: white;
+    font-size: 17px;
+}
+
+.read-more {
+    text-decoration: blue;
+    color: blue;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.mat-column-planName {
+    flex: 0 0 220px;
+}
+
+mat-row:hover {
+    background-color: darkgray;
+}
+
+.mat-paginator {
+    margin-right: 125px !important;
+}
+
+h1 {
+    font-size: 35px;
+    margin-left: -160px;
+}
+
+mat-icon {
+    padding-bottom: 3px;
+}

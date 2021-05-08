@@ -1,0 +1,15 @@
+.value-controls {
+    font-size: 16px;;
+}
+
+h1 {
+    text-decoration-line: underline;
+    color: darkblue;
+    font-size: 25px;
+}
+
+.label-control {
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(2, 41, 77);
+}

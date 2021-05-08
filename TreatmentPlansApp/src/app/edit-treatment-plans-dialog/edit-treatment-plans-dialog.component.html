@@ -1,0 +1,52 @@
+<h1 mat-dialog-title>Edit Treatment Plan: {{ planDetails.treatmentPlanName }}</h1>
+
+<mat-dialog-content>
+  <form [formGroup]="form">
+      <div>
+        <mat-grid-list cols="10" gutterSize="15px">
+            <mat-grid-tile [colspan]="5">   
+                <mat-form-field appearance="outline">
+                    <mat-label>Treatment Plan</mat-label>
+                    <input matInput
+                    type="text"
+                    name="plan"
+                    placeholder="Treatment Plan"
+                    value="planDetails.treatmentPlanName"
+                    formControlName="treatmentPlanName"
+                    />
+                </mat-form-field>    
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2">
+                <button mat-raised-button color="primary" class="add-plan-btn">Add Plan</button>
+            </mat-grid-tile>
+        </mat-grid-list>
+      </div>
+
+    <div>
+      <h3><mat-label>Treatment Description</mat-label></h3>
+        <mat-grid-list cols="10">
+            <mat-grid-tile [colspan]="10">
+            <mat-form-field appearance="outline">
+                <mat-label>Treatment Description</mat-label>
+                <textarea matInput 
+                name="description" 
+                value="planDetails.planDescription"
+                formControlName="planDescription"
+                placeholder="Enter treatment details here">
+                </textarea>
+            </mat-form-field> 
+            </mat-grid-tile>
+        </mat-grid-list> 
+    </div>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button color="warn" (click)="close()">Close</button> &nbsp;
+  <button
+    class="mat-raised-button success-btn"
+    (click)="editPlan()"
+    [disabled]="form.invalid">
+    Edit Plan
+  </button>
+</mat-dialog-actions>

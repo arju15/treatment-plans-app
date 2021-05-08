@@ -1,0 +1,63 @@
+<div>
+    <div>
+        <mat-grid-list cols="6" gutterSize="10px">
+            <mat-grid-tile [colspan]="3">
+                <h1><mat-label>Treatment Plans</mat-label></h1>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1">
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2">
+                <button mat-raised-button color="primary" class="add-button" (click)="openDialog()"><mat-icon>add</mat-icon> Add Treatment Plan</button>    
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+            
+    <!-- <div class="plan-card-div">
+        <ng-container *ngFor="let plan of plans; let i=index">
+            <mat-card class="plan-card" >
+                <mat-card-header>
+                    <mat-card-title name="planName_{{i}}">{{ plan.treatmentPlanName }}</mat-card-title>
+                </mat-card-header>
+                <br>
+                <mat-card-content name="description_{{i}}">
+                    {{ plan.planDescription}}
+                </mat-card-content>
+                <mat-card-actions>
+                    <button mat-button (click)="editPlan(i)">Edit<mat-icon color="primary">create</mat-icon></button>
+                    <button mat-button (click)="deletePlan(i)">Delete<mat-icon color="warn">delete</mat-icon></button>
+                </mat-card-actions>
+            </mat-card>
+            <br />
+        </ng-container>
+    </div> -->
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+        
+        <ng-container matColumnDef="planName">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Plan </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.treatmentPlanName }} </mat-cell>
+        </ng-container>  
+      
+        <ng-container matColumnDef="planDescription">
+          <mat-header-cell *matHeaderCellDef mat-sort-header [attr.colspan]="2"> Description </mat-header-cell>
+          <mat-cell *matCellDef="let element; let i = index"> {{element.planDescription | slice:0:100}}<span (click)="readMore(i)" class="read-more">{{element.planDescription.length >100 ? ' ....Read More': ''}}</span> </mat-cell>
+        </ng-container>
+        
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+            <mat-cell *matCellDef="let element;let i=index">
+              <button mat-icon-button color="primary" (click)="openEditDialog(element.id)">
+                  <mat-icon>create</mat-icon>
+              </button>
+              <button mat-icon-button color="warn" (click)="deleteMeeting(i)">
+                <mat-icon>delete</mat-icon>
+            </button>
+            </mat-cell>
+          </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+      <!-- <div *ngIf="dataSourcre?.length === 0">No records found</div> -->
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Treatment Plan Details</h1>
+
+<mat-dialog-content>
+    <div>
+    <mat-label class="label-control">Treatment Plan: </mat-label> &nbsp;
+    <mat-label class="value-controls">
+        {{ planDetails.treatmentPlanName }}
+    </mat-label>
+    </div>
+<br />
+    <div>
+      <mat-label class="label-control">Treatment Description: </mat-label>
+      <mat-label class="value-controls">
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{planDetails.planDescription}}</p>
+      </mat-label>
+    </div>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-raised-button color="warn" (click)="close()">Close</button> &nbsp;
+</mat-dialog-actions>

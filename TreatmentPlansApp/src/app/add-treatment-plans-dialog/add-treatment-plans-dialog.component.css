@@ -1,0 +1,28 @@
+
+.mat-dialog-actions{
+    justify-content: flex-end;
+}
+
+.mat-grid-tile .mat-figure {
+    justify-content: left !important;
+}
+
+.mat-dialog-title {
+    justify-content: center;
+    font-weight: bolder;
+}
+
+.success-btn {
+    background-color: mediumseagreen;
+    color: white;
+}
+
+button:disabled {
+    background-color: lightgray;
+    color: black;
+}
+
+.add-plan-btn {
+    position: relative;
+    top: -10px;;
+}
